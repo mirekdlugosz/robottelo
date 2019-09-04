@@ -117,6 +117,16 @@ def module_prod(module_org):
     return entities.Product(organization=module_org).create()
 
 
+def test_positive_sample(session):
+    vm = 'bob'
+    with session:
+        session.organization.select('Default Organization')
+        ch = session.contenthost.read(vm, widget_names=['details',
+                                                       'provisioning_details',
+                                                       'subscriptions',
+                                                       'repository_sets'], lce=True)
+        assert True
+
 @tier2
 def test_positive_add_custom_content(session):
     """Associate custom content in a view
