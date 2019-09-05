@@ -120,12 +120,23 @@ def module_prod(module_org):
 def test_positive_sample(session):
     vm = 'bob'
     with session:
-        session.organization.select('Default Organization')
+        session.organization.select('Default Organiation')
         ch = session.contenthost.read(vm, widget_names=['details',
-                                                       'provisioning_details',
-                                                       'subscriptions',
-                                                       'repository_sets'], lce=True)
+                                                        'provisioning_details',
+                                                        'repository_sets'], limit_to_lce=True)
         assert True
+
+
+def test_positive_sample2(session):
+    vm = 'bob'
+    with session:
+        session.organization.select('Default Organiation')
+        ch = session.contenthost.read(vm, widget_names=['details',
+                                                        'provisioning_details']),
+        session.contenthost.update(vm, {'repository_sets.limit_to_lce': True})
+        ch_reposet = session.contenthost.read(vm, widget_names=['repository_sets'])
+        assert True
+
 
 @tier2
 def test_positive_add_custom_content(session):
