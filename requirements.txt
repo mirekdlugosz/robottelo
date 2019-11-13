@@ -28,7 +28,7 @@ PyYAML==5.1.2
 tenacity==5.1.5
 
 # Get airgun, nailgun and upgrade from master
-git+https://github.com/SatelliteQE/airgun.git#egg=airgun
+git+https://github.com/mirekdlugosz/airgun.git@performance-test#egg=airgun
 git+https://github.com/SatelliteQE/nailgun.git@stable-satellite#egg=nailgun
 git+https://github.com/SatelliteQE/satellite6-upgrade.git#egg=satellite6-upgrade
 git+https://github.com/SatelliteQE/automation-tools#egg=automation-tools
